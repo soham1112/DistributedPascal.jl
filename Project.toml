@@ -1,0 +1,8 @@
+name = "DistributedPascal"
+uuid = "88d3ec6a-1431-11e9-05a8-1b769a8427ac"
+authors = ["Soham Mukherjee <smukherjee@perimeterinstitute.ca>"]
+version = "0.1.0"
+
+[deps]
+ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"

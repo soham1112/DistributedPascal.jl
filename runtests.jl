@@ -1,0 +1,2 @@
+using DistributedPascal
+DistributedPascal.greet()
