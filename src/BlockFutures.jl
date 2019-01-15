@@ -1,6 +1,7 @@
 #---------------------------------------------------------------
 # Compute block averages starting from arbitrary intial data
 # Soham 1/2019
+# FIXME: Remove arbitrary spawning of processes
 #---------------------------------------------------------------
 
 function fsetinitialblockface(size::Int)::Future
@@ -12,7 +13,6 @@ function fgetblockface(fblock::Future)::Future
 end
 
 function fcomputeblock(fblockface::Future)::Future
-    @show gethostname(), getpid(), myid()
     @spawn computeblock(fetch(fblockface))
 end
 
