@@ -1,5 +1,19 @@
+#---------------------------------------------------------------
+# Compute block averages starting from arbitrary intial data
+# Soham 1/2019
+#---------------------------------------------------------------
+
 module DistributedPascal
 
-greet() = print("Hello World!")
+using Distributed
 
-end # module
+export Block, BlockFace
+export computeblock,   setinitialblockface,  getblockface 
+export fcomputeblock, fsetinitialblockface, fgetblockface 
+export computeblockgrid, fcomputeblockgrid
+
+include("BlockAverage.jl")
+include("BlockDistribute.jl")
+include("BlockFutures.jl")
+
+end
