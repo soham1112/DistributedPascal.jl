@@ -12,14 +12,15 @@ function fgetblockface(fblock::Future)::Future
 end
 
 function fcomputeblock(fblockface::Future)::Future
+    @show gethostname(), getpid(), myid()
     @spawn computeblock(fetch(fblockface))
 end
 
-function fcomputeblockgrid(numblocks::Int)
+function fcomputeblockgrid(blockpoints::Int, numblocks::Int)
     fgrid = Array{Union{Nothing, Future}}(nothing, (numblocks, numblocks, numblocks))
     for i in 1:numblocks, j in 1:numblocks, k in 1:numblocks
         if k == 1
-            fgrid[i,j,k] = fcomputeblock(fsetinitialblockface(3)) 
+            fgrid[i,j,k] = fcomputeblock(fsetinitialblockface(blockpoints)) 
         else
             fgrid[i,j,k] = fcomputeblock(fgetblockface(fgrid[i,j,k-1]))
         end

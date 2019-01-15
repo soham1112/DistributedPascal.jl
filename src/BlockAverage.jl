@@ -40,7 +40,7 @@ function computeblock(face::BlockFace)::Block
             B[i,j,k] = face.val[i,j]
         else
             B[i,j,k] = (B[i, j+1, k-1] + B[i, j-1, k-1] 
-                      + B[i+1, j, k-1] + B[i-1, j, k-1])/B[i, j, k-1]
+                      + B[i+1, j, k-1] + B[i-1, j, k-1])/4
         end
     end
     return B 
