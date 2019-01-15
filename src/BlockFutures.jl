@@ -17,6 +17,7 @@ function fcomputeblock(fblockface::Future)::Future
 end
 
 function fcomputeblockgrid(blockpoints::Int, numblocks::Int)
+    @show nprocs()
     fgrid = Array{Union{Nothing, Future}}(nothing, (numblocks, numblocks, numblocks))
     for i in 1:numblocks, j in 1:numblocks, k in 1:numblocks
         if k == 1
