@@ -34,7 +34,7 @@ function Base. setindex!(B::Block, u::Number, i::Int, j::Int, k::Int)::Block
 end
 
 function computeblock(face::BlockFace)::Block
-    println("computeblock ", myid())
+    println("computeblock ")
     B = Block(zeros(Number, size(face), size(face), size(face)))
     for k in 1:size(face), j in 1:size(face), i in 1:size(face)
         if k == 1
@@ -48,11 +48,11 @@ function computeblock(face::BlockFace)::Block
 end
 
 function setinitialblockface(size::Int)
-    println("setinitialblock ", myid())
+    println("setinitialblock ")
     return BlockFace(rand(1:10, (size, size)))    
 end
 
 function getblockface(B::Block)::BlockFace
-    println("getblockface ", myid())
+    println("getblockface ")
     return BlockFace(B.val[:, :, end])
 end
