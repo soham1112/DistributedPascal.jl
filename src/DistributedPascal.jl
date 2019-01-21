@@ -5,7 +5,7 @@
 
 module DistributedPascal
 
-using Distributed
+using Distributed, ClusterManagers
 
 export Block, BlockFace
 export computeblock,   setinitialblockface,  getblockface 
